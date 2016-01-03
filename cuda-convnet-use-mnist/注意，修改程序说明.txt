@@ -1,0 +1,18 @@
+
+使用mnist数据库：
+
+1. 
+注意要把convdata.py里的34/35行改为：
+        
+self.num_colors = 1
+        # mnist是灰度图，所以选1，也就是在cnn里#channels=1
+self.img_size = 28		# mnist数据库的图片是28*28的。
+
+
+2. 修改.sh文件
+
+训练时：
+--data-provider=cifar		# 使用cifar时的设置为：--data-provider=cifar-cropped
+
+测试时：
+--multiview-test=0		# 因为本身就是28*28的了。原先cifar是32*32的，会将此项设为1
